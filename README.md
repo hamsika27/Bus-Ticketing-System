@@ -16,7 +16,7 @@ A cloud-powered web application that enables travelers to easily book bus ticket
 
 ## 🖥️ Run Locally
 ```bash
-git clone https://github.com/<your-username>/bus-ticketing-system.git
+git clone https://github.com/hamsika27/bus-ticketing-system.git
 cd bus-ticketing-system
 docker build -t myapp .
 docker run -p 3000:3000 myapp
