@@ -1,22 +1,55 @@
-# 🚌 Bus Ticketing and Payment System
+🚌 Bus Ticketing and Payment System
 
-A cloud-powered web application that enables travelers to easily book bus tickets, check seat availability, and make secure payments online.
+A full-stack web application designed to simplify the process of booking bus tickets and making secure online payments. Built using Node.js, Express, and MySQL, it provides users with a smooth ticket reservation experience and real-time booking updates.
 
-## 🚀 Features
-- Real-time bus listing and seat availability
-- Secure ticket booking and payment process
-- Dockerized for easy deployment
-- Cloud-hosted using Render
+🚀 Features
 
-## 🧰 Tech Stack
-- **Backend:** Node.js, Express.js
-- **Containerization:** Docker
-- **Cloud Deployment:** Render
-- **Language:** JavaScript
+User registration and authentication
 
-## 🖥️ Run Locally
-```bash
-git clone https://github.com/hamsika27/bus-ticketing-system.git
-cd bus-ticketing-system
-docker build -t myapp .
-docker run -p 3000:3000 myapp
+Search and view available buses
+
+Book and cancel tickets
+
+Secure online payment integration
+
+Admin dashboard to manage routes and schedules
+
+Dockerized for easy deployment
+
+🛠️ Tech Stack
+
+Frontend: HTML, CSS, JavaScript
+
+Backend: Node.js, Express.js
+
+Database: MySQL
+
+Containerization: Docker
+
+⚙️ Installation
+
+# Clone the repository
+git clone https://github.com/hamsika27/Bus-Ticketing-System.git
+
+# Navigate to project directory
+cd Bus-Ticketing-System
+
+# Install dependencies
+npm install
+
+# Start the server
+npm start
+
+🌐 Run with Docker
+
+docker build -t bus-ticketing-system .
+docker run -p 3000:3000 bus-ticketing-system
+
+💬 Output
+
+Welcome to the Bus Ticketing and Payment System!
+Server running at http://localhost:5000
+
+🧾 License
+
+This project is licensed under the MIT License.
