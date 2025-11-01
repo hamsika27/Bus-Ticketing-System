@@ -1,25 +1,22 @@
-const { MongoClient, ServerApiVersion } = require('mongodb');
+import express from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-const uri = "mongodb+srv://hamsika_27:HryjG7NAje3RYSee@busticketdb.yv9tw7n.mongodb.net/?appName=BusTicketDB";
+dotenv.config();
 
-const client = new MongoClient(uri, {
-  serverApi: {
-    version: ServerApiVersion.v1,
-    strict: true,
-    deprecationErrors: true,
-  }
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+})
+.then(() => console.log("✅ Connected to MongoDB Atlas"))
+.catch((err) => console.error("❌ MongoDB connection error:", err));
+
+app.get("/", (req, res) => {
+  res.send("Welcome to the Bus Ticketing and Payment System!");
 });
 
-async function run() {
-  try {
-    await client.connect();
-    await client.db("admin").command({ ping: 1 });
-    console.log("✅ Successfully connected to MongoDB!");
-  } catch (error) {
-    console.error("❌ MongoDB connection failed:", error);
-  } finally {
-    await client.close();
-  }
-}
-
-run();
+app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
