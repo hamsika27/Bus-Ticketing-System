@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 
 const bookingSchema = new mongoose.Schema({
-  name: { type: String, required: true },        // ✅ passenger name
+  name: { type: String, required: true },
   email: { type: String, required: true },
-  from: { type: String, required: true },        // ✅ starting point
-  to: { type: String, required: true },          // ✅ destination
-  date: { type: String, required: true },        // ✅ date of travel
-  seats: { type: Number, required: true },       // ✅ number of seats
-}, { timestamps: true }); // Optional: adds createdAt, updatedAt fields
+  from: { type: String, required: true },
+  to: { type: String, required: true },
+  date: { type: String, required: true },
+  seats: { type: Number, required: true },
+}, { timestamps: true });
 
 const Booking = mongoose.model("Booking", bookingSchema);
 export default Booking;
