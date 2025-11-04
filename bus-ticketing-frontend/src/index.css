@@ -1,0 +1,41 @@
+/* src/index.css */
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Body background and color */
+body {
+  background-color: #f8fff9;
+  color: #2e4f3e;
+  min-height: 100vh;
+}
+
+/* Links */
+a {
+  color: #3b7a57;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* Button base style */
+button {
+  background-color: #a8e6cf;
+  border: none;
+  color: #2e4f3e;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+button:hover {
+  background-color: #7fd9b4;
+}

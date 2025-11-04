@@ -1,0 +1,14 @@
+import mongoose from "mongoose";
+
+const busSchema = new mongoose.Schema({
+  busNumber: { type: String, required: true },
+  from: { type: String, required: true },
+  to: { type: String, required: true },
+  date: { type: Date, required: true },
+  totalSeats: { type: Number, required: true },
+  availableSeats: { type: Number, required: true },
+  fare: { type: Number, required: true }
+});
+
+const Bus = mongoose.model("Bus", busSchema);
+export default Bus;
