@@ -22,7 +22,7 @@ const BookingPage = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:10000/api/bookings/add", formData);
+      const res = await axios.post("https://bus-ticketing-system-lgos.onrender.com/api/bookings", formData);
       alert("✅ Booking successful!");
       console.log(res.data);
       navigate("/payment"); // ✅ Redirect to payment page after success

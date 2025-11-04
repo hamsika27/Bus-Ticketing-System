@@ -1,30 +1,27 @@
-import Booking from "../models/bookingModel.js";
+import Booking from "../models/Booking.js";
 
 // ✅ Create a new booking
 export const createBooking = async (req, res) => {
   try {
-    const { name, email, busNumber, seats } = req.body;
+    console.log("📩 Received booking data:", req.body);
 
-    const newBooking = new Booking({
-      name,
-      email,
-      busNumber,
-      seats,
-    });
+    const { name, email, from, to, date, seats } = req.body;
 
+    // Validate required fields
+    if (!name || !email || !from || !to || !date || !seats) {
+      return res.status(400).json({ message: "All fields are required" });
+    }
+
+    // Create and save new booking
+    const newBooking = new Booking({ name, email, from, to, date, seats });
     await newBooking.save();
-    res.status(201).json({ message: "Booking created successfully", newBooking });
-  } catch (error) {
-    res.status(500).json({ message: "Error creating booking", error: error.message });
-  }
-};
 
-// ✅ Get all bookings
-export const getBookings = async (req, res) => {
-  try {
-    const bookings = await Booking.find();
-    res.status(200).json(bookings);
+    res.status(201).json({
+      message: "✅ Booking successful!",
+      booking: newBooking,
+    });
   } catch (error) {
-    res.status(500).json({ message: "Error fetching bookings", error: error.message });
+    console.error("❌ Booking failed:", error);
+    res.status(500).json({ message: "❌ Booking failed. Try again.", error });
   }
 };

@@ -1,16 +1,14 @@
 {
   "name": "bus-ticketing-system",
   "version": "1.0.0",
-  "description": "Bus Ticketing System Backend",
-  "main": "server.js",
   "type": "module",
   "scripts": {
     "start": "node server.js"
   },
   "dependencies": {
     "express": "^5.1.0",
-    "mongoose": "^8.6.0",
-    "dotenv": "^16.4.0",
+    "mongoose": "^8.0.0",
+    "dotenv": "^16.0.0",
     "cors": "^2.8.5"
   }
 }
