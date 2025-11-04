@@ -3,8 +3,8 @@ import { createBooking, getAllBookings, deleteBooking } from "../controllers/boo
 
 const router = express.Router();
 
-router.post("/", createBooking);
-router.get("/", getAllBookings);
-router.delete("/:id", deleteBooking);
+router.post("/", createBooking); // create new booking
+router.get("/", getAllBookings); // get all bookings
+router.delete("/:id", deleteBooking); // delete booking
 
 export default router;

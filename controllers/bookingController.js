@@ -1,51 +1,56 @@
 import Booking from "../models/Booking.js";
 
-// ✅ Create Booking
+// ✅ Create a new booking
 export const createBooking = async (req, res) => {
   try {
     const { name, email, from, to, date, seats } = req.body;
 
+    // ✅ Validation
     if (!name || !email || !from || !to || !date || !seats) {
       return res.status(400).json({ message: "All fields are required" });
     }
 
-    const newBooking = new Booking({ name, email, from, to, date, seats });
-    await newBooking.save();
+    const newBooking = new Booking({
+      name,
+      email,
+      from,
+      to,
+      date,
+      seats,
+    });
+
+    await newBooking.save(); // ✅ This saves it to MongoDB!
 
     res.status(201).json({
-      message: "✅ Booking successful!",
+      message: "✅ Booking saved successfully!",
       booking: newBooking,
     });
   } catch (error) {
-    console.error("❌ Error creating booking:", error);
-    res.status(500).json({ message: "Error creating booking", error: error.message });
+    console.error("Error creating booking:", error);
+    res.status(500).json({
+      message: "Error creating booking",
+      error: error.message,
+    });
   }
 };
 
-// ✅ Get All Bookings
+// ✅ Fetch all bookings
 export const getAllBookings = async (req, res) => {
   try {
     const bookings = await Booking.find();
     res.status(200).json(bookings);
   } catch (error) {
-    console.error("❌ Error fetching bookings:", error);
-    res.status(500).json({ message: "Error fetching bookings", error: error.message });
+    res.status(500).json({ message: "Error fetching bookings" });
   }
 };
 
-// ✅ Delete Booking (Newly Added)
+// ✅ Delete a booking
 export const deleteBooking = async (req, res) => {
   try {
     const { id } = req.params;
-    const deleted = await Booking.findByIdAndDelete(id);
-
-    if (!deleted) {
-      return res.status(404).json({ message: "Booking not found" });
-    }
-
-    res.status(200).json({ message: "✅ Booking deleted successfully" });
+    await Booking.findByIdAndDelete(id);
+    res.status(200).json({ message: "Booking deleted successfully" });
   } catch (error) {
-    console.error("❌ Error deleting booking:", error);
-    res.status(500).json({ message: "Error deleting booking", error: error.message });
+    res.status(500).json({ message: "Error deleting booking" });
   }
 };
